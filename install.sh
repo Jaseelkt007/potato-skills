@@ -16,6 +16,18 @@ for skill in "$repo"/skills/*/; do
   echo "linked $name"
 done
 
+missing=""
+for need in poteto-mode create-verification-skill correct no-comments; do
+  [ -f "$dest/$need/SKILL.md" ] || missing="$missing $need"
+done
+if [ -n "$missing" ]; then
+  echo "pstack not found (missing:$missing). potato-start uses create-verification-skill; /potato-help lists the rest."
+  echo "  install it:  npx skills add backnotprop/pstack -g"
+  echo "  source:      https://github.com/cursor/plugins/tree/main/pstack"
+else
+  echo "pstack found"
+fi
+
 settings="$HOME/.claude/settings.json"
 command -v node >/dev/null 2>&1 || { echo "node not found: add the hook by hand (see README)"; exit 0; }
 node - "$settings" <<'EOF'

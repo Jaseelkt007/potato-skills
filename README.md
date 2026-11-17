@@ -11,7 +11,11 @@ sh ~/potato-skills/install.sh
 
 `install.sh` links each skill into `~/.claude/skills` and adds a SessionStart hook to `~/.claude/settings.json`. Run it again after pulling; it is idempotent. To update: `git -C ~/potato-skills pull`.
 
-Requires git and Node (the check gate runs on Node). The pstack skills that `/potato-help` lists come from [cursor/plugins](https://github.com/cursor/plugins) (folder `pstack`) and are installed separately.
+Requires git and Node (the check gate runs on Node). The pstack skills that `/potato-help` lists (and `/potato-start` uses for verification) come from Lauren Tan's [pstack](https://github.com/cursor/plugins/tree/main/pstack) and are installed separately; `install.sh` checks for them and prints the command if they are missing:
+
+```sh
+npx skills add backnotprop/pstack -g
+```
 
 ## Skills
 
