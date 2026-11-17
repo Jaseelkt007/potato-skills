@@ -1,0 +1,4 @@
+{
+  "roots": ["src"],
+  "exts": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".rs", ".py", ".go"]
+}
